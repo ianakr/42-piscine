@@ -6,7 +6,7 @@
 /*   By: ikozlova <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:23:59 by ikozlova          #+#    #+#             */
-/*   Updated: 2023/09/25 17:24:07 by ikozlova         ###   ########.fr       */
+/*   Updated: 2023/09/26 17:47:06 by ikozlova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -28,6 +28,11 @@ void	printdigit(int num)
 
 void	ft_putnbr(int num)
 {
+	if (num == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
 	if (num == 0)
 	{
 		ft_putchar('0');
