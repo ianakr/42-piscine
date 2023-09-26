@@ -44,10 +44,8 @@ void	print(int *tab, int n)
 
 void	ft_print_combn(int n)
 {
-	int
-		i;
-	int
-		tab[10];
+	int	i;
+	int	tab[10];
 
 	i = 0;
 	while (i < n)
@@ -68,3 +66,17 @@ void	ft_print_combn(int n)
 		}
 	}
 }
+
+// int main() {
+//     for (int i=1; i<=9; i++){
+//         ft_print_combn(i);
+//         write(1, "\n", 1);
+//     }
+
+//     return 0;
+// }
+
+
+
+
+

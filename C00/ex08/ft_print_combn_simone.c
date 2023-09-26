@@ -16,7 +16,7 @@ char	g_characters[10][10];
 char	g_combination[10];
 int		g_stack[10];
 
-void	fillg_characterspace(int n)
+void	fill_characterspace(int n)
 {
 	int	space;
 	int	index;
@@ -75,7 +75,7 @@ int	next_char(int n, int space, int index)
 	return (index);
 }
 
-void	findg_combinations(int n)
+void	find_combinations(int n)
 {
 	int	space;
 	int	count;
@@ -109,3 +109,12 @@ void	ft_print_combn(int n)
 	init_stack(n);
 	find_combinations(n);
 }
+
+// int main() {
+//     for (int i=1; i<=9; i++){
+//         ft_print_combn(i);
+//         write(1, "\n", 1);
+//     }
+
+//     return 0;
+// }
