@@ -1,0 +1,75 @@
+#include <unistd.h>
+
+int zero = 48;
+int minusSign = 45;
+
+char digit2char(int digit) {
+    // digits are from 48(0) to 57(9) bytes
+    return zero + digit;
+}
+
+
+// Function to display an integer as a string
+void ft_putnbr(int num) {
+    // Handle the case when num is 0 separately
+    if (num == 0) {
+        write(1, &zero, 1);
+        return;
+    }
+
+    // Handle negative numbers
+    if (num < 0) {
+        write(1, &minusSign, 1);
+        num = -num;
+        // now we have to print the positive number, minus is already printed
+    }
+
+    // Create an array to store digits from the last to the first
+    char buffer[10];  // 10 because max int 2147483647 has 10 characters
+    int length = 0;
+
+    // Extract and store digits in reverse order
+    while (num > 0) {
+        // we get the LAST digit for example with 328 % 10 we obtain 8
+        int digit = num % 10; 
+        // convert the digit in a char and put it in the reverse posion
+        // we will have in the example of 328 number a reverse buffer ['8','2','3']
+        buffer[length] = digit2char(digit);
+        
+        // increase the lenght + 1 to write the next digit (if any) to the next position
+        length = length + 1; 
+        
+        // divide now for 10 to loose the last digit, for example 328/10 = 32 -> 2 -> 0
+        num = num / 10;
+    }
+
+    // in our example:
+    //   length = 3
+    //   num = 0
+    
+    // this print the buffer in the reverse order and it is WRONG!
+    // write(1, &buffer, length);
+
+    // Print digits in reverse order to display the original number
+    // for example buffer ['8','2','3'] have to print 328
+    for (int index = length - 1; index >= 0; index--) {
+        // i = 2 -> 1 -> 0
+        
+        // for (int i = length; i >= 1; i--) {
+        // i = 3 -> 2 -> 1
+        
+        // buffer[2] = '3';
+        // buffer[1] = '2';
+        // buffer[0] = '8';
+        
+        char c = buffer[index]; // index = 2 -> 1 -> 0
+        // we have to print on char step by step reversing the buffer
+        write(1, &c, 1);
+        
+    }
+}
+
+int main() {
+    ft_putnbr(-123456);
+    return 0;
+}
