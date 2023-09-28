@@ -1,47 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikozlova <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 15:23:59 by ikozlova          #+#    #+#             */
-/*   Updated: 2023/09/25 17:20:38 by ikozlova         ###   ########.fr       */
+/*   Created: 2023/09/27 12:16:36 by ikozlova          #+#    #+#             */
+/*   Updated: 2023/09/27 12:18:53 by ikozlova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	write(1, &c, 1);
-}
+	int	div;
+	int	mod;
 
-void	printDigit(int num)
-{
-	if (num == 0)
-	{
-		return ;
-	}
-	printDigit(num / 10);
-	ft_putchar('0' + (num % 10));
-}
-
-void ft_putnbr(int num)
-{
-	if (num == 0)
-	{
-		ft_putchar('0');
-		return;
-	}
-	if (num < 0)
-	{
-		ft_putchar('-');
-		num = -num;
-	}
-	printDigit(num);
-}
-int main()
-{
-	ft_putnbr(42);
-	return 0;
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
 }
