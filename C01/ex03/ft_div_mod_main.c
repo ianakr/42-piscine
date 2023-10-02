@@ -9,16 +9,20 @@ void	ft_div_mod(int a, int b, int *div, int *mod)
 	}
 }
 
-int	main()
+int    main()
 {
-	int a;
-	int b;
-	int x;
-	int y;
+    int a;
+    int b;
+    int div;
+    int mod;
+    int *px;
+    int *py;
+    px = &div;
+    py = &mod;
 
-	a = 10;
-	b = 5;
-	ft_div_mod(a, b, div, mod);
-	printf("%d\n", x);
-	printf("%d", y);
+    a = 10;
+    b = 5;
+    ft_div_mod(a, b, px, py);
+    printf("%d\n", div);
+    printf("%d", mod);
 }
